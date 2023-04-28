@@ -1,0 +1,117 @@
+<section class="register">
+  <div
+    class="container vh-100 d-flex align-items-center justify-content-center"
+  >
+    <div class="row shadow rounded overflow-hidden bg-darklight g-0 w-100">
+      <!-- Left Image  -->
+      <div class="col-12 col-md-5 d-none d-md-block">
+        <div
+          class="image flex-shrink-0 h-100"
+          style="
+            background: url('./assets/images/log.jpg') center / cover no-repeat;
+          "
+        ></div>
+      </div>
+
+      <!-- Right Form  -->
+      <div class="col-12 col-md-7">
+        <form
+          class="p-4"
+          [formGroup]="loginForm"
+          (ngSubmit)="setLoginForm(loginForm)"
+        >
+          <div class="text-center">
+            <img
+              src="./assets/images/logo-sm.png"
+              alt="log sm"
+              class="img-fluid my-3"
+            />
+          </div>
+          <h2 class="h5 text-center mb-4">Log in to FreeToGame</h2>
+
+          <!-- Inputs  -->
+          <div class="data row g-3">
+            <div class="col-12">
+              <input
+                #inp4
+                type="email"
+                formControlName="email"
+                class="form-control form-control-lg"
+                placeholder="Email Address"
+              />
+
+              <ul
+                class="text-danger small"
+                *ngIf="loginForm.get('email')?.errors && inp4.value.length"
+              >
+                <li
+                  class=""
+                  *ngIf="loginForm.get('email')?.hasError('required')"
+                >
+                  Email Required
+                </li>
+
+                <li class="" *ngIf="loginForm.get('email')?.hasError('email')">
+                  Email Invalid Pattern
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-12">
+              <input
+                #inp5
+                formControlName="password"
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="Password"
+              />
+              <ul
+                class="text-danger small"
+                *ngIf="loginForm.get('password')?.errors && inp5.value.length"
+              >
+                <li
+                  class=""
+                  *ngIf="loginForm.get('password')?.hasError('required')"
+                >
+                  Password Required
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="loginForm.get('password')?.hasError('pattern')"
+                >
+                  <ul class="m-0 p-0">
+                    <li>Password Includes [a-zA-Z0-9]</li>
+                    <li>Password Min (3)</li>
+                    <li>Password Max (10)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-12">
+              <button
+                class="btn-r btn-blue w-100"
+                [disabled]="loginForm.invalid"
+              >
+                Login
+              </button>
+            </div>
+
+            <div class="col-12">
+              <p class="mt-1 text-center">
+                Not a member yet?
+                <span
+                  class="btn-link text-decoration-none cp"
+                  routerLink="/auth/signup"
+                  >Create Account
+                  <i class="fa-solid fa-angle-right fa-fw"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

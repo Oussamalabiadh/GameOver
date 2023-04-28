@@ -1,0 +1,166 @@
+@import "bootstrap/scss/bootstrap";
+@import "./assets/scss/_custome";
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+@import "ngx-toastr/toastr";
+body {
+  background-color: $main-color;
+  height: 100%;
+  width: 100%;
+  color: $second-color;
+}
+@media screen and (max-width: 576px) {
+  :root {
+    font-size: 11px;
+  }
+
+  .btn-r {
+    font-size: 10px !important;
+    padding: 5px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $main-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $dark-color;
+  border-radius: 3.125rem;
+}
+
+// ------------------------------------ Custome font
+.fs-10 {
+  font-size: 0.625rem !important;
+}
+// ------------------------------------ Custome Colors
+.c-blue {
+  color: $blue-color;
+}
+
+.bg-main {
+  background-color: $main-color;
+}
+
+.bg-blue {
+  background-color: $blue-color;
+}
+
+.bg-second {
+  background-color: $second-color;
+}
+
+.bg-dark {
+  background-color: $dark-color;
+}
+
+.bg-darklight {
+  background-color: $dark-light;
+}
+
+.bg-second2 {
+  background-color: $seond-color2;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+// ------------------------------------ Custome Component
+
+.btn-r {
+  display: inline-block;
+  color: #aaa;
+  text-align: center;
+
+  background-color: transparent;
+  border: 0.0625rem solid transparent;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 4px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.btn-blue {
+  background-image: linear-gradient(#4799eb, #4799eb 60%, #49acff);
+  color: #fff;
+  background-color: #4799eb;
+  border-color: #4799eb;
+
+  &:hover {
+    background-image: linear-gradient(#358de6, #358de6 40%, #2174b9);
+    background-color: #367cc6;
+    border-color: #367cc2;
+  }
+}
+
+.btn-light {
+  border-color: $second-color;
+  @include trans(all);
+
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+}
+
+.card-img-top {
+  height: 8.625rem;
+}
+
+.custom-select__option--value {
+  background-color: $main-color !important;
+  border: unset !important;
+}
+
+.custom-select__dropdown {
+  background-color: $dark-color !important;
+  border: unset !important;
+  border-radius: 0.3125rem;
+  padding: 0.625rem 1.25rem;
+  width: unset;
+  overflow-y: auto !important;
+  max-height: 18.75rem;
+}
+
+.custom-select__option {
+  color: $seond-color2;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $dark-light;
+  }
+}
+
+// Form Controls Edite
+.form-control {
+  background-color: $dark-color;
+
+  border: unset;
+  outline: unset;
+
+  font-size: 0.875rem;
+  height: 3.125rem;
+  color: $second-color;
+  &:focus {
+    box-shadow: unset;
+
+    background-color: $dark-color;
+    color: $second-color !important;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    display: none;
+  }
+}

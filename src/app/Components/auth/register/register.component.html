@@ -1,0 +1,126 @@
+<section class="register">
+  <div class="container vh-100 d-flex align-items-center justify-content-center">
+    <div class="row shadow rounded overflow-hidden bg-darklight g-0">
+      <!-- Left Image  -->
+      <div class="col-12 col-md-5 d-none d-md-block">
+        <div class="image flex-shrink-0 h-100" style="
+            background: url('./assets/images/register.jpg') center / cover
+              no-repeat;
+          "></div>
+      </div>
+
+      <!-- Right Form  -->
+      <div class="col-12 col-md-7">
+        <form class="p-4" [formGroup]="registerForm" (ngSubmit)="setSignUpForm(registerForm)">
+          <h2 class="h5 text-center mb-3">Create My Account!</h2>
+
+          <!-- Inputs  -->
+          <div class="data row g-3">
+            <div class="col-12 col-md-6">
+              <input #inp1 formControlName="name" type="text" class="form-control form-control-lg"
+                placeholder="Name" />
+
+              <ul class="text-danger small" *ngIf="
+                  registerForm.get('name')?.errors && inp1.value.length
+                ">
+                <li class="" *ngIf="registerForm.get('name')?.hasError('required')">
+                  Name Required
+                </li>
+
+                <li class="" *ngIf="registerForm.get('name')?.hasError('maxlength')">
+                  Name Max (20)
+                </li>
+
+                <li class="" *ngIf="registerForm.get('name')?.hasError('minlength')">
+                  Name Min (3)
+                </li>
+              </ul>
+            </div>
+            <div class="col-12">
+              <input #inp4 type="email" formControlName="email" class="form-control form-control-lg"
+                placeholder="Email Address" />
+
+              <ul class="text-danger small" *ngIf="registerForm.get('email')?.errors && inp4.value.length">
+                <li class="" *ngIf="registerForm.get('email')?.hasError('required')">
+                  Email Required
+                </li>
+
+                <li class="" *ngIf="registerForm.get('email')?.hasError('email')">
+                  Email Invalid Pattern
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-12">
+              <input #inp5 formControlName="password" type="password" class="form-control form-control-lg"
+                placeholder="Password" />
+              <ul class="text-danger small" *ngIf="
+                  registerForm.get('password')?.errors && inp5.value.length
+                ">
+                <li class="" *ngIf="registerForm.get('password')?.hasError('required')">
+                  Password Required
+                </li>
+
+                <li class="" *ngIf="registerForm.get('password')?.hasError('pattern')">
+                  <ul class="m-0 p-0">
+                    <li>Password Includes [a-zA-Z0-9]</li>
+                    <li>Password Min (3)</li>
+                    <li>Password Max (10)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12">
+              <input #inp6 formControlName="rePassword" type="password" class="form-control form-control-lg"
+                placeholder="rePassword" />
+              <ul class="text-danger small" *ngIf="
+                  registerForm.get('rePassword')?.errors && inp6.value.length
+                ">
+                <li class="" *ngIf="registerForm.get('rePassword')?.hasError('required')">
+                  rePassword Required
+                </li>
+
+                <li class="" *ngIf="registerForm.get('rePassword')?.hasError('pattern')">
+                  <ul class="m-0 p-0">
+                    <li>rePassword Includes [a-zA-Z0-9]</li>
+                    <li>rePassword Min (3)</li>
+                    <li>rePassword Max (10)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12">
+              <input #inp3 formControlName="phone" type="number" class="form-control form-control-lg"
+                placeholder="Enter phone" />
+
+              <ul class="text-danger small" *ngIf="registerForm.get('phone')?.errors && inp3.value.length">
+                <li class="" *ngIf="registerForm.get('phone')?.hasError('required')">
+                  phone Required
+                </li>
+
+                <li class="" *ngIf="registerForm.get('phone')?.hasError('max')">
+                  ter Valid Tunisien Number
+                </li>
+
+              </ul>
+            </div>
+            <div class="col-12">
+              <button class="btn-r btn-blue w-100" [disabled]="registerForm.invalid">
+                Create Account
+              </button>
+            </div>
+
+            <div class="col-12">
+              <p class="mt-1 text-center">
+                Already a member?
+                <span class="btn-link text-decoration-none cp" routerLink="/auth/signin">Log In
+                  <i class="fa-solid fa-angle-right fa-fw"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
